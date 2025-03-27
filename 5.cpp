@@ -1,4 +1,5 @@
 #include <iostream>
+
 //类的默认成员函数：
 //--------------------------------------------------
 
@@ -44,7 +45,7 @@ public:
 
     //拷贝构造函数
     //第一个参数是自身类型的引用；
-    Date(Date& d)//必须是自身类类型的*引用*，不能传值传参(eg.Date d是错误的，会报错)；
+    Date(const Date& d)//必须是自身类类型的*引用*，不能传值传参(eg.Date d是错误的，会报错)；
     {
         _year = d._year;
         _month = d._month;
@@ -59,23 +60,21 @@ private:
 
 //调用此函数时要先调用拷贝构造函数；
 void func(Date d)
-{
-
-}
+{}
 
 
-int main()
-{
-    Date a1;//无参数时不能加"()"；
-    Date a2(2025, 3, 5);    
-    Date a3(a2);
-    a1.print();
-    a2.print();
-    a3.print();
+// int main()
+// {
+//     Date a1;//无参数时不能加"()"；
+//     Date a2(2025, 3, 5);    
+//     Date a3(a2);
+//     a1.print();
+//     a2.print();
+//     a3.print();
 
-    //顺序：1.Date(Date& d);2.void func(Date d);
-    func(a3);
-    return 0;
-}
+//     //顺序：1.Date(Date& d);2.void func(Date d);
+//     func(a3);
+//     return 0;
+// }
 
 
